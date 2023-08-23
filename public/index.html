@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Chat App</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+      }
+
+      main {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      .message-container {
+        flex: 1;
+        width: 80%;
+        max-width: 1200px;
+        max-height: 100vh; /* Set maximum height */
+        background-color: #f2f2f2;
+        padding: 10px;
+        overflow-y: auto;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .send-container {
+          position: fixed;
+          bottom: 0;
+        }
+      }
+
+      .send-container {
+        width: 80%;
+        max-width: 1200px;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #eee;
+      }
+
+      .message-input {
+        flex-grow: 1;
+        padding: 5px;
+      }
+
+      .send-button {
+        margin-left: 10px;
+      }
+
+      #message-container div {
+        background-color: #ccc;
+        padding: 5px;
+      }
+
+      #message-container div:nth-child(2n) {
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="message-container" class="message-container"></div>
+      <form method="post" id="send-container" class="send-container">
+        <input type="text" id="message-input" class="message-input" />
+        <button type="submit" id="send-button" class="send-button">Send</button>
+      </form>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="script.js"></script>
+    </main>
+  </body>
+</html>

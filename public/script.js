@@ -1,7 +1,15 @@
-const socket = io("http://localhost:3000/");
+const socket = io();
 const messageContainer = document.getElementById("message-container");
 const messageForm = document.getElementById("send-container");
 const messageInput = document.getElementById("message-input");
+
+// messageInput.addEventListener("focus", (event) => {
+//   messageContainer.classList.add("active");
+// });
+
+// messageInput.addEventListener("blur", (event) => {
+//   messageContainer.classList.remove("active");
+// });
 
 const name = prompt("What is your name?");
 appendMessage("You joined");

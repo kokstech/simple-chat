@@ -6,6 +6,8 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
+app.use(express.static("public"));
+
 const users = {};
 
 app.route("/").get(getPage).post(getPage);
@@ -28,7 +30,7 @@ io.on("connection", (socket) => {
 });
 
 function getPage(req, res) {
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile(__dirname + "/public/index.html");
 }
 
 server.listen(process.env.PORT, () => {
